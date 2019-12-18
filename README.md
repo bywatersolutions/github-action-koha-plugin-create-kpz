@@ -21,7 +21,9 @@ The name of the built kpz file
 
 ## Example usage
 
-uses: actions/koha-plugin-create-kpz@v1
+```yaml
+uses: actions/github-action-koha-plugin-create-kpz@v1
 with:
   release-version: 'v1.2.3'
   release-name: 'koha-plugin-kitchen-sink'
+```
