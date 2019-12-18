@@ -7,11 +7,11 @@ The file will be in your GitHub workspace after the action is run.
 
 ### `release-version`
 
-**Required** Version for this koha plugin release, e.g. "v1.0.3"
+**Required** Version for this koha plugin release, e.g. `v1.0.3`
 
 ### `release-name`
 
-**Required** Name of plugin, should almost always be the repo name, e.g. "koha-plugin-kitchen-sink"
+**Required** Name of plugin, should almost always be the repo name, e.g. `koha-plugin-kitchen-sink`
 
 ## Outputs
 
