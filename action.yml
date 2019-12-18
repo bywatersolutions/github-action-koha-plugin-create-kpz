@@ -1,0 +1,18 @@
+name: 'Koha Plugin kpz Builder'
+description: 'Accepts a plugin name and version, and creates a Koha Plugin kpz file'
+inputs:
+  release-version:  # id of input
+    description: 'Version for this koha plugin release, e.g. v1.0.3'
+    required: true
+  release-name:
+    description: 'Name of plugin repo, e.g. koha-plugin-kitchen-sink'
+    required: true
+outputs:
+  filename: # id of output
+    description: 'The name of the built kpz file'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.release-version }}
+    - ${{ inputs.release-name }}
