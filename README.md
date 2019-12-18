@@ -22,8 +22,12 @@ The name of the built kpz file
 ## Example usage
 
 ```yaml
-uses: actions/github-action-koha-plugin-create-kpz@v1
-with:
-  release-version: 'v1.2.3'
-  release-name: 'koha-plugin-kitchen-sink'
+- name: Build Koha Plugin kpz artifact
+  id: kpz
+  uses: "bywatersolutions/github-action-koha-plugin-create-kpz@master"
+  with:
+    release-version: ${{ steps.semvers.outputs.v_patch }}
+    release-name: ${{ steps.myvars.outputs.GITHUB_REPO }}
 ```
+
+Take a look at https://github.com/bywatersolutions/koha-plugin-kitchen-sink/blob/master/.github/workflows/main.yml for a real world usage.
