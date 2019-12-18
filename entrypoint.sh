@@ -11,8 +11,7 @@ mkdir dist
 cp -r Koha dist/.
 cd dist
 
-PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tac | sed '1q;d')
-echo "FIND: $(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tac )"
+PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | sed '1q;d')
 
 sed -i -e "s/{VERSION}/${PLUGIN_VERSION}/g" ${PLUGIN_MODULE}
 sed -i -e "s/1900-01-01/${TODAY_ISO}/g" $PLUGIN_MODULE
