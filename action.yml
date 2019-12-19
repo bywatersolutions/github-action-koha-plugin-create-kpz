@@ -1,5 +1,8 @@
 name: 'Koha Plugin kpz Builder'
 description: 'Accepts a plugin name and version, and creates a Koha Plugin kpz file'
+branding:
+  icon: 'file'
+  color: 'green'
 inputs:
   release-version:  # id of input
     description: 'Version for this koha plugin release, e.g. v1.0.3'
