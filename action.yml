@@ -10,6 +10,8 @@ inputs:
   release-name:
     description: 'Name of plugin repo, e.g. koha-plugin-kitchen-sink'
     required: true
+  minimum-version:
+    description: 'Minimum version of Koha this plugin is compatible with e.g. 19.11'
 outputs:
   filename: # id of output
     description: 'The name of the built kpz file'

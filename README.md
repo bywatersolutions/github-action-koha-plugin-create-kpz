@@ -13,6 +13,12 @@ The file will be in your GitHub workspace after the action is run.
 
 **Required** Name of plugin, should almost always be the repo name, e.g. `koha-plugin-kitchen-sink`
 
+### `minimmum-version`
+
+**Required** Minimum version of Koha this plugin is compatible with, e.g. `19.11` or `19.11.03`
+
+Best practice is to keep plugins compatible across all currently supported versions of Koha
+
 ## Outputs
 
 ### `filename`
@@ -28,6 +34,7 @@ The name of the built kpz file
   with:
     release-version: ${{ steps.semvers.outputs.v_patch }}
     release-name: ${{ steps.myvars.outputs.GITHUB_REPO }}
+    minimum-version: ${{ steps.myvars.outputs.MINIMUM_VERSION }}
 ```
 
 Take a look at https://github.com/bywatersolutions/koha-plugin-kitchen-sink/blob/master/.github/workflows/main.yml for a real world usage.
