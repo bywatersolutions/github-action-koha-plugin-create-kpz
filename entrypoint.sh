@@ -34,6 +34,16 @@ if [ -f "$META_YML" ]; then
     cat $META_YML
 fi
 
+PLUGIN_DIR=${PLUGIN_MODULE::-3}
+
+if [ -f "CHANGELOG.md" ]; then
+    cp CHANGELOG.md "$PLUGIN_DIR/CHANGELOG.md"
+fi
+
+if [ -f "README.md" ]; then
+    cp README.md "$PLUGIN_DIR/README.md"
+fi
+
 zip -r ../${RELEASE_FILENAME} ./Koha
 cp ${META_YML} .. # Copy munged META.yml to the root directory
 cd ..
