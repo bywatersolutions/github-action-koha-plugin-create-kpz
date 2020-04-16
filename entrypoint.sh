@@ -19,7 +19,7 @@ mkdir dist
 cp -r Koha dist/.
 cd dist
 
-PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | sed '1q;d')
+PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tail -1 | sed '1q;d')
 echo "PLUGIN MODULE: $PLUGIN_MODULE"
 META_YML=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*/META\.yml$' | sed '1q;d')
 
