@@ -35,13 +35,20 @@ if [ -f "$META_YML" ]; then
 fi
 
 PLUGIN_DIR=${PLUGIN_MODULE::-3}
+echo "PLUGIN DIR: $PLUGIN_DIR"
 
-if [ -f "CHANGELOG.md" ]; then
-    cp CHANGELOG.md "$PLUGIN_DIR/CHANGELOG.md"
+if [ -f "../CHANGELOG.md" ]; then
+    echo "CHANGELOG.md found, copying to plugin directory"
+    cp ../CHANGELOG.md "$PLUGIN_DIR/CHANGELOG.md"
+else
+    echo "CHANGELOG.md not found, please add a CHANGELOG.md file to your plugin's root directory"
 fi
 
-if [ -f "README.md" ]; then
-    cp README.md "$PLUGIN_DIR/README.md"
+if [ -f "../README.md" ]; then
+    echo "README.md found, copying to plugin directory"
+    cp ../README.md "$PLUGIN_DIR/README.md"
+else
+    echo "README.md not found, please add a README.md file to your plugin's root directory"
 fi
 
 zip -r ../${RELEASE_FILENAME} ./Koha
