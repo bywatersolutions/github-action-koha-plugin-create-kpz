@@ -19,4 +19,3 @@ runs:
   args:
     - ${{ inputs.release-version }}
     - ${{ inputs.release-name }}
-    - ${{ inputs.koha-version }}
