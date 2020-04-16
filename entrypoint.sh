@@ -12,9 +12,16 @@ cp -r Koha dist/.
 cd dist
 
 PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | sed '1q;d')
+META_YML=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*/META\.yml$' | sed '1q;d')
 
 sed -i -e "s/{VERSION}/${PLUGIN_VERSION}/g" ${PLUGIN_MODULE}
 sed -i -e "s/1900-01-01/${TODAY_ISO}/g" $PLUGIN_MODULE
+
+if [ -f "$META_YML" ]; then
+    sed -i -e "s/{VERSION}/${PLUGIN_VERSION}/g" ${META_YML}
+    sed -i -e "s/1900-01-01/${TODAY_ISO}/g" $META_YML
+    cat $META_YML
+fi
 
 zip -r ../${RELEASE_FILENAME} ./Koha
 cd ..
