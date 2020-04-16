@@ -34,7 +34,7 @@ The name of the built kpz file
   with:
     release-version: ${{ steps.semvers.outputs.v_patch }}
     release-name: ${{ steps.myvars.outputs.GITHUB_REPO }}
-    minimum-version: ${{ steps.myvars.outputs.MINIMUM_VERSION }}
+    minimum-version: ${{ steps.koha-version-oldstable.outputs.version-major-minor }}
 ```
 
 Take a look at https://github.com/bywatersolutions/koha-plugin-kitchen-sink/blob/master/.github/workflows/main.yml for a real world usage.
