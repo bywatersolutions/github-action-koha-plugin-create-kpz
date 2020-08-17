@@ -3,6 +3,7 @@
 PLUGIN_VERSION=$1
 PLUGIN_NAME=$2
 MINIMUM_VERSION=$3
+PLUGIN_MODULE=$4
 
 echo "PLUGIN VERSION: $PLUGIN_VERSION"
 echo "PLUGIN NAME: $PLUGIN_NAME"
@@ -19,7 +20,7 @@ mkdir dist
 cp -r Koha dist/.
 cd dist
 
-PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tail -1 | sed '1q;d')
+[ -z "$PLUGIN_MODULE" ] && PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tail -1 | sed '1q;d')
 echo "PLUGIN MODULE: $PLUGIN_MODULE"
 PLUGIN_YML=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*/PLUGIN\.yml$' | sed '1q;d')
 
@@ -52,7 +53,7 @@ else
 fi
 
 zip -r ../${RELEASE_FILENAME} ./Koha
-cp ${PLUGIN_YML} .. # Copy munged PLUGIN.yml to the root directory
+[ -z "$PLUGIN_YML" ] || cp ${PLUGIN_YML} .. # Copy munged PLUGIN.yml to the root directory
 cd ..
 rm -rf dist
 

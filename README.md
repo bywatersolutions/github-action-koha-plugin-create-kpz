@@ -17,6 +17,10 @@ The file will be in your GitHub workspace after the action is run.
 
 **Required** Minimum version of Koha this plugin is compatible with, e.g. `19.11` or `19.11.03`
 
+### `plugin-module`
+
+**Optional** Path to the plugin module file, relative to the plugin root directory. If not provided, action will attempt to auto-detect the module path.
+
 Best practice is to keep plugins compatible across all currently supported versions of Koha
 
 ## Outputs
@@ -35,6 +39,7 @@ The name of the built kpz file
     release-version: ${{ steps.semvers.outputs.v_patch }}
     release-name: ${{ steps.myvars.outputs.GITHUB_REPO }}
     minimum-version: ${{ steps.koha-version-oldstable.outputs.version-major-minor }}
+    plugin-module: 'Path/To/Plugin/Module.pm"
 ```
 
 Take a look at https://github.com/bywatersolutions/koha-plugin-kitchen-sink/blob/master/.github/workflows/main.yml for a real world usage.

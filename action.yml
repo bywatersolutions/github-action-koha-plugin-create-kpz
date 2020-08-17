@@ -12,6 +12,8 @@ inputs:
     required: true
   minimum-version:
     description: 'Minimum version of Koha this plugin is compatible with e.g. 19.11'
+  plugin-module:
+    description: 'Path to the plugin module relative to the plugin directory root, e.g. Koha/Plugin/Com/ByWaterSolutions/CurbsidePickup.pm'
 outputs:
   filename: # id of output
     description: 'The name of the built kpz file'
@@ -22,3 +24,4 @@ runs:
     - ${{ inputs.release-version }}
     - ${{ inputs.release-name }}
     - ${{ inputs.minimum-version }}
+    - ${{ inputs.plugin-module }}
