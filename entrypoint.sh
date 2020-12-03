@@ -58,3 +58,6 @@ cd ..
 rm -rf dist
 
 echo ::set-output name=filename::${RELEASE_FILENAME}
+
+echo "GIT DIFF:"
+git diff
