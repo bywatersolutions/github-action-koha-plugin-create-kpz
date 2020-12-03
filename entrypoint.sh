@@ -20,7 +20,7 @@ mkdir dist
 cp -r Koha dist/.
 cd dist
 
-[ -z "$PLUGIN_MODULE" ] && PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | tail -1 | sed '1q;d')
+[ -z "$PLUGIN_MODULE" ] && PLUGIN_MODULE=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*\.pm$' | head -1 | sed '1q;d')
 echo "PLUGIN MODULE: $PLUGIN_MODULE"
 PLUGIN_YML=$(find . -regex '\./Koha/Plugin/.*[A-Za-z]*/PLUGIN\.yml$' | sed '1q;d')
 
@@ -58,6 +58,3 @@ cd ..
 rm -rf dist
 
 echo ::set-output name=filename::${RELEASE_FILENAME}
-
-echo "GIT DIFF:"
-git diff
