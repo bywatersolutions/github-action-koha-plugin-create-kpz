@@ -13,7 +13,7 @@ The file will be in your GitHub workspace after the action is run.
 
 **Required** Name of plugin, should almost always be the repo name, e.g. `koha-plugin-kitchen-sink`
 
-### `minimmum-version`
+### `minimum-version`
 
 **Required** Minimum version of Koha this plugin is compatible with, e.g. `19.11` or `19.11.03`
 
