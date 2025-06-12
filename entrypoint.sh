@@ -16,6 +16,20 @@ TODAY_ISO=$(date '+%Y-%m-%d')
 echo "TODAY ISO: $TODAY_ISO"
 
 cd /github/workspace
+
+# Check if this is a Vue.js plugin
+if [ -f "package.json" ]; then
+    echo "package.json found, checking for Vue dependencies..."
+    if grep -q "\"vue\"" package.json || grep -q "\"@vue\"" package.json; then
+        echo "Vue.js detected, running build process..."
+        npm install
+        npm run build
+        echo "Vue.js build completed"
+    else
+        echo "No Vue.js dependencies found in package.json"
+    fi
+fi
+
 mkdir dist
 cp -r Koha dist/.
 cd dist
